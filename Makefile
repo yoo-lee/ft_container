@@ -1,12 +1,12 @@
 
-NAME			= ft_container_tester
+NAME			= ft_container
 
 SOURCES_FOLDER	= ./tester/
 
 SOURCES			=	main.cpp \
-					vector_test.cpp \
-#					tester_vector.cpp \
-#					tester.cpp \
+					tester_vector.cpp \
+					tester.cpp \
+	#				vector_test.cpp \
 					tester_map.cpp \
 					tester_list.cpp \
 					tester_deque.cpp \

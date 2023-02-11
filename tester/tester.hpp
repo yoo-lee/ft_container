@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tester.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rchallie <rchallie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoo-lee <yoo-lee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 18:17:44 by rchallie          #+#    #+#             */
-/*   Updated: 2020/12/07 18:24:43 by rchallie         ###   ########.fr       */
+/*   Updated: 2023/02/10 11:50:31 by yoo-lee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ static bool printSingleValue(std::fstream& fs, const T& t1, const T& t2)
 bool printBoolResult(std::fstream& fs, bool stl_bool, bool ft_bool);
 
 void test_vector();
-void test_list();
-void test_map();
-void test_stack();
-void test_queue();
-void test_deque();
+// void test_list();
+// void test_map();
+// void test_stack();
+// void test_queue();
+// void test_deque();
 
 #endif
