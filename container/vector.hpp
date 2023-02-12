@@ -1,4 +1,3 @@
-
 #ifndef VECTOR_HPP
 # define VECTOR_HPP
 
@@ -11,7 +10,6 @@
 # include "./utils/random_access_iterator.hpp"
 
 
-
 namespace ft
 {
 	template < class T, class Alloc = std::allocator<T> >
@@ -20,34 +18,20 @@ namespace ft
 		public:
 
 			typedef T                                           value_type;
-
 			typedef Alloc                                       allocator_type;
-
 			typedef typename allocator_type::reference          reference;
-
-
 			typedef typename allocator_type::const_reference    const_reference;
-			
-			
 			typedef typename allocator_type::pointer            pointer;
-
-			
 			typedef typename allocator_type::const_pointer      const_pointer;
 
-			typedef ft::random_access_iterator<value_type>               iterator;
-
-			
-			typedef ft::random_access_iterator<const value_type>            const_iterator;
-			
-			
+			typedef ft::random_access_iterator<value_type>      iterator;
+			typedef ft::random_access_iterator<const value_type>  const_iterator;
 			typedef ft::reverse_iterator<iterator>             reverse_iterator;
-
 			typedef ft::reverse_iterator<const_iterator>       const_reverse_iterator;
-
-			typedef typename ft::iterator_traits<iterator>::difference_type    difference_type; 
-
-			typedef typename allocator_type::size_type          size_type;
 			
+			typedef typename ft::iterator_traits<iterator>::difference_type    difference_type; 
+			// iterator_traitsは、イテレータに関する型情報を取得するためのクラス。
+			typedef typename allocator_type::size_type          size_type;
 			explicit vector (const allocator_type& alloc = allocator_type())
 			:
 				_alloc(alloc),
@@ -73,8 +57,6 @@ namespace ft
 					_end++;
 				}
 			}
-
-		
 		
 			template <class InputIterator>
 					vector (InputIterator first, InputIterator last,
@@ -98,7 +80,6 @@ namespace ft
 				}
 			}
 			
-			
 			vector (const vector& x)
 			:
 				_alloc(x._alloc),
@@ -109,13 +90,11 @@ namespace ft
 				this->insert(this->begin(), x.begin(), x.end());
 			}
 			
-			
 			~vector()
 			{
 				this->clear();
 				_alloc.deallocate(_start, this->capacity());
 			}
-						
 		
 			vector &operator=(const vector& x)
 			{
@@ -127,10 +106,7 @@ namespace ft
 			}
 			
 			iterator begin() { return (_start); };
-
-			
 			const_iterator begin() const { return (_start); }
-
 			
 			iterator end()
 			{
@@ -138,6 +114,7 @@ namespace ft
 					return (this->begin());
 				return (_end);
 			}
+
 			const_iterator end() const
 			{
 				if (this->empty())
@@ -147,18 +124,10 @@ namespace ft
 			
 			reverse_iterator rbegin() { return (reverse_iterator(this->end())); }
 			const_reverse_iterator rbegin() const { return (reverse_iterator(this->end())); }
-			
 			reverse_iterator rend() { return (reverse_iterator(this->begin())); }
-
-			
 			const_reverse_iterator rend() const { return (reverse_iterator(this->begin())); }
-
-			
 			size_type   size(void) const { return (this->_end - this->_start); }
-
-			
 			size_type   max_size(void) const { return allocator_type().max_size(); }
-
 			
 			void        resize (size_type n, value_type val = value_type())
 			{
@@ -175,13 +144,9 @@ namespace ft
 				else
 					this->insert(this->end(), n - this->size(), val);
 			}
-
 			
 			size_type   capacity (void) const { return (this->_end_capacity - this->_start); }
-
-			
 			bool        empty (void) const { return (size() == 0 ? true : false); }
-
 			
 			void        reserve (size_type n)
 			{
@@ -214,7 +179,8 @@ namespace ft
 				checkRange(n);
 				return ((*this)[n]);
 			}
-		const_reference at (size_type n) const
+
+			const_reference at (size_type n) const
 			{
 				checkRange(n);
 				return ((*this)[n]);
@@ -543,7 +509,6 @@ namespace ft
 			}
 			return (true);
 		}
-
 	
 	template <class T, class Alloc>
 		bool operator!= (const vector<T, Alloc>& lhs, const vector<T, Alloc>& rhs)
@@ -556,6 +521,7 @@ namespace ft
 		{
 			return (ft::lexicographical_compare(lhs.begin(), lhs.end(), rhs.begin(), rhs.end()));
 		}
+		// lexicographical_compare compare length of the string
 
 	template <class T, class Alloc>
 		bool operator<= (const vector<T, Alloc>& lhs, const vector<T, Alloc>& rhs)

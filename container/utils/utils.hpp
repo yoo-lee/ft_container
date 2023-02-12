@@ -34,16 +34,16 @@ namespace ft
         struct binary_function
         {
             typedef Arg1 first_argument_type;
-
             typedef Arg2 second_argument_type;
-
             typedef Result result_type;
         };
+
     template <class T>
         struct less : binary_function<T, T, bool>
         {
             bool operator() (const T& x, const T& y) const { return (x < y); }
         };
+		
     template <class T1, class T2>
         struct pair
         {
@@ -282,7 +282,7 @@ namespace ft
                 typedef Distance    difference_type;
                 typedef Pointer     pointer;
                 typedef Reference   reference;
-                typedef Category    iterator_category;
+                typedef Category    iterator_category
         };
 
     template <class T>
