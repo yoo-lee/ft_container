@@ -118,7 +118,7 @@ namespace ft
             return (ft::pair<T1, T2>(x, y));
         }
     
-    template<bool Cond, class T = void> struct enable_if {};
+	template<bool Cond, class T = void> struct enable_if {};
     template<class T> struct enable_if<true, T> { typedef T type; };
 
     template <bool is_integral, typename T>
@@ -233,7 +233,7 @@ namespace ft
             virtual const char* what() const throw() { return (_msg.c_str()); }
     };
 
-   
+	//struct では無くてて
     template <class Iterator> struct iterator_traits
     {
         typedef typename Iterator::difference_type       difference_type;
@@ -282,7 +282,7 @@ namespace ft
                 typedef Distance    difference_type;
                 typedef Pointer     pointer;
                 typedef Reference   reference;
-                typedef Category    iterator_category
+                typedef Category    iterator_category;
         };
 
     template <class T>
@@ -455,7 +455,8 @@ namespace ft
             }
             return (first2 != last2);
         }
-    
+
+	//２分木
     template <typename T>
     struct BST_Node
     {

@@ -6,8 +6,8 @@ SOURCES_FOLDER	= ./tester/
 SOURCES			=	main.cpp \
 					tester_vector.cpp \
 					tester.cpp \
-	#				vector_test.cpp \
 					tester_map.cpp \
+#					vector_test.cpp \
 					tester_list.cpp \
 					tester_deque.cpp \
 					tester_queue.cpp \
