@@ -2,7 +2,8 @@ using namespace std;
 #include <iostream>
 #include <cstddef>
 
-class BST {
+class BST 
+{
 public:
   // BSTのノード
   class BSTNode 
