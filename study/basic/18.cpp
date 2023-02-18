@@ -2,64 +2,42 @@ using namespace std;
 #include <iostream>
 #include <cstddef>
 
-class BST 
+class BST
 {
-public:
-  // BSTのノード
-  class BSTNode 
-  {
-  public:
-    int value;
-    BSTNode* left;
-    BSTNode* right;
-
-    BSTNode(int val) 
+	public:
+	class Node
 	{
-      value = val;
-      left = NULL;
-      right = NULL;
-    }
-  };
-
-  // BSTのルートノード
-  BSTNode* root;
-
-  // コンストラクタ
-  BST() {
-    root = NULL;
-  }
+		Node*	left;
+		Node*   right;
+		int val;
+	};
+	
+	Node (int val)
+	{
+		left = NULL;
+		right = NULL;
+		value = val;
+	}
+};
 
 void insert(int val)
 {
-	
+	if (Node == NULL)
+	inserthelper(root, val);	
 }
 
 Node Inserthelp(Node *node, int val)
 {
-	if ( node == NULL)
+		if ( node == NULL)
 	{
 		node = new Node(val);
 	}
-	else if (val < node-> val)
-	node -> left = Insert 
+	else if (val < node -> val)
+	node -> left = Inserthelper(node->left, val);
+	else if(val > node-> val)
+	node -> right = Inserthelper(node->right, val);
+	return Node;
 }
-  // 新しいノードを挿入する
-  void Insert(int val) {
-    root = InsertHelper(root, val);
-	node ->
-  }
-
-  // Insertメソッドのヘルパー関数
-  BSTNode* InsertHelper(BSTNode* node, int val) {
-    if (node == NULL) {
-      node = new BSTNode(val);
-    } else if (val < node->value) {
-      node->left = InsertHelper(node->left, val);
-    } else if (val > node->value) {
-      node->right = InsertHelper(node->right, val);
-    }
-    return node;
-  }
 
   // 指定された値を持つノードを削除する
   void Delete(int val) {
@@ -67,7 +45,7 @@ Node Inserthelp(Node *node, int val)
   }
 
   // Deleteメソッドのヘルパー関数
-  BSTNode* DeleteHelper(BSTNode* node, int val) {
+  Node* DeleteHelper(Node* node, int val) {
     if (node == NULL) {
       return NULL;
     } else if (val < node->value) {
@@ -76,15 +54,18 @@ Node Inserthelp(Node *node, int val)
       node->right = DeleteHelper(node->right, val);
     } else {
       if (node->left == NULL) {
-        BSTNode* temp = node->right;
+        
+Node* temp = node->right;
         delete node;
         return temp;
       } else if (node->right == NULL) {
-        BSTNode* temp = node->left;
+        
+Node* temp = node->left;
         delete node;
         return temp;
       }
-      BSTNode* temp = FindMin(node->right);
+      
+Node* temp = FindMin(node->right);
       node->value = temp->value;
       node->right = DeleteHelper(node->right, temp->value);
     }
@@ -92,7 +73,7 @@ Node Inserthelp(Node *node, int val)
   }
 
   // 指定されたノードのサブツリーの最小値を持つノードを検索する
-  BSTNode* FindMin(BSTNode* node) {
+  Node* FindMin(Node* node) {
     while (node->left != NULL) {
       node = node->left;
     }
@@ -105,7 +86,7 @@ Node Inserthelp(Node *node, int val)
   }
 
   // Containsメソッドのヘルパー関数
-  bool ContainsHelper(BSTNode* node, int val) {
+  bool ContainsHelper(Node* node, int val) {
     if (node == NULL) {
       return false;
     } else if (node->value == val) {
@@ -116,7 +97,8 @@ Node Inserthelp(Node *node, int val)
       return ContainsHelper(node->right, val);
     }
   }
-};
+}
+
 
 int main() {
   BST *bst;
@@ -127,9 +109,8 @@ int main() {
   bst.Insert(1);
   bst.Insert(4);
 	
-// BSTNode* a = bst.FindMin(bst.root);
-BSTNode* b 
-  b = FindMin(bst);
+//Node* a = bst.FindMin(bst.root);Node* b 
+//   b = FindMin(bst);
 
   if (bst.Contains(3)) {
     cout << "BST contains 3" << endl;
