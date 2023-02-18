@@ -3,8 +3,13 @@
 
 class CIntArray
 {
-	
+	template <class T, int N>
+void init(T (&arr)[N])
+{
+    for (int i = 0; i < N; ++i)
+        arr[i] = T();
 }
+};
 
 void Disp(CIntArray array)
 {

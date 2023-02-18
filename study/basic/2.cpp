@@ -7,6 +7,7 @@ int main()
   std::string s1 = "12";
   std::string s2 = "123";
   
+  bool result = std::lexicogtaphical_compare(s2.begin(), s1.end())
   //compare the string length
   bool result = std::lexicographical_compare(s1.begin(), s1.end(), s2.begin(), s2.end());
     // std::cout << s1.begin() << '\n' ;

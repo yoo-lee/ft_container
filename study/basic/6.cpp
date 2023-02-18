@@ -4,13 +4,16 @@
 # include <typeinfo>
 # include <iostream>
 
-class MyClass {
+class MyClass
+{
 public:
     int x;
     void func() { }
+	MyClass()
 };
 
-struct MyStruct {
+struct MyStruct
+{
     int x;
     void func() { }
 };

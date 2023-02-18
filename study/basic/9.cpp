@@ -10,6 +10,7 @@ public:
 	{
         cout << "C::C(int)" << endl;
     }
+
     C& operator=(int arg) 
 	{
         cout << "C::operator=(int)" << endl;
@@ -21,14 +22,15 @@ public:
         cout << "C::operator<<" << endl;
         cout << arg << endl;
         x = arg;
-        ;
     }
 };
 
-int main(void) {
+int main(void) 
+{
     C obj = 100;
     C a;
-    obj(a);
-        cout << obj(a) << endl;
+    // obj(a);
+    //     cout << obj(a) << endl;
+	obj.operator<<(a)
     return 0;
 }

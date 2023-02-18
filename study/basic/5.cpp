@@ -3,14 +3,17 @@
 #include <array>
 #include <stdexcept>
 
-struct A {
+struct A 
+{
     A(int);
 };
+
 struct B {
     B(A) { }
 };
 
 int main() {
-    B b(1);
+    // A a(1);
+    B(a);
     return 0;
 }

@@ -1,6 +1,6 @@
 #include <iostream>
 
-namespace MyNamespace {
+namespace M {
     int x = 42;
     void printX() {
         std::cout << "x = " << x << std::endl;
@@ -14,8 +14,9 @@ namespace n
         std::cout << "x = " << x << std::endl;
     }
 }
+
 int main() {
-    MyNamespace::printX();
-    MyNamespace::printX();
+    M::printX();
+    n::printX();
     return 0;
 }

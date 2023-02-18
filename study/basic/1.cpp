@@ -5,6 +5,12 @@ U divide (U x, U y)
 {
 	return x/y;
 }
+template <>
+float divide (float x, float y)
+{
+	return x/y;
+	
+}
 template <typename T>
 T add(T a,T b){
     return a + b;
@@ -22,6 +28,8 @@ int main()
   std::cout << m << std::endl;
   float s = add(3.6f, 5.1f);
   std::cout << s << std::endl;
+float k = divide(3.6f, 5.1f);
+  std::cout << k << std::endl;
 //   add("hello");
 	// int n =	square(10, );
 }
