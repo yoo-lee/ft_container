@@ -4,7 +4,7 @@ using namespace std;
 
 class BST 
 {
-public:
+  public:
   // BSTのノード
   class BSTNode 
   {
@@ -13,8 +13,7 @@ public:
     BSTNode* left;
     BSTNode* right;
 
-    BSTNode(int val) 
-	{
+    BSTNode(int val) {
       value = val;
       left = NULL;
       right = NULL;
@@ -25,28 +24,14 @@ public:
   BSTNode* root;
 
   // コンストラクタ
-  BST() {
+  BST() 
+  {
     root = NULL;
   }
 
-void insert(int val)
-{
-	
-}
-
-Node Inserthelp(Node *node, int val)
-{
-	if ( node == NULL)
-	{
-		node = new Node(val);
-	}
-	else if (val < node-> val)
-	node -> left = Insert 
-}
   // 新しいノードを挿入する
   void Insert(int val) {
     root = InsertHelper(root, val);
-	node ->
   }
 
   // Insertメソッドのヘルパー関数
@@ -119,29 +104,25 @@ Node Inserthelp(Node *node, int val)
 };
 
 int main() {
-  BST *bst;
-  BST  *a;
-  bst.Insert(5);
-  bst.Insert(3);
-  bst.Insert(7);
-  bst.Insert(1);
-  bst.Insert(4);
-	
-// BSTNode* a = bst.FindMin(bst.root);
-BSTNode* b 
-  b = FindMin(bst);
+	BST *a = new BST();
+	a -> Insert(100);
+	a -> Insert(200);
+	a -> Insert(0);
 
-  if (bst.Contains(3)) {
-    cout << "BST contains 3" << endl;
-  }
 
-  bst.Delete(5);
-  
-  if (!bst.Contains(5)) {
-    cout << "BST does not contain 5" << endl;
-  }
+    BST *bst = new BST();
+    bst->Insert(0);
+    bst->Insert(3);
+    bst->Insert(2);
 
-  a.Insert(100);
+	cout << bst->root->value << endl;
 
-  return 0;
+    BST::BSTNode *min_node = bst->FindMin(bst->root);
+    BST::BSTNode *
+	cout << "min=" << min_node->value << endl;
+
+    a->Insert(100);
+    cout << a->root->value << endl;
+
+    return 0;
 }

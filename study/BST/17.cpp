@@ -3,11 +3,11 @@ class N
 {
 	void insert ()
 	{
-
+		
 	}
 };
 
-N& operator= (N & obj)
+N& operator= (N & obj);
 {
 	return (*this);
 } 

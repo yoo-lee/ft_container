@@ -62,7 +62,6 @@ namespace ft
 						start_node = start_node->left;
 					}
 				}
-
 				_node_alloc.construct(new_node, Node(to_insert, prev_node, _last_node, _last_node));
 				
 				if (prev_node == _last_node)
@@ -128,6 +127,7 @@ namespace ft
 				return (root);
 			}
 
+
 			void _replaceNodeInParent(node_pointer node, node_pointer new_node)
 			{
 				if (node->parent != _last_node)
@@ -152,7 +152,11 @@ namespace ft
 				_node_alloc.destroy(node);
 				_node_alloc.deallocate(node, 1);
 			}
-			
+
+			/*
+			** @brief used to move replacer node and re set all link between
+			** node where it's necessary and delete to_remove.
+			*/
 			void _replaceDoubleChildren(node_pointer& to_remove, node_pointer new_node)
 			{
 				if (new_node->parent != _last_node)
@@ -197,6 +201,9 @@ namespace ft
 				_node_alloc.deallocate(to_remove, 1);
 			}
 
+			/*
+			** @brief need a pair create like : make_pair(key, mapped_type())
+			*/
 			void _removeByKey(node_pointer node, value_type to_remove)
 			{
 				if (to_remove.first < node->value.first)

@@ -2,19 +2,6 @@
 # define BINARY_SEARCH_TREE_ITERATOR_HPP
 
 //二分探索木のノードを反復処理するためのイテレータークラス
-// このコードは、C++で実装された二分探索木のイテレーターを表すクラステンプレートです。
-// namespace ftは、STLの代替として実装されたカスタムのC++
-
-// テンプレートパラメータTは、イテレーターが指す要素の型を表し、
-// Compareは比較関数の型を表します。BST_iteratorクラスは、
-// ft::iteratorクラスを継承し、双方向イテレータを表します。
-// 双方向イテレータは、イテレータが指す要素を前方または後方
-// に移動することができるイテレータです。これにより、
-// 二分探索木内の要素を効率的に反復処理することができます。
-// bidirectional_iterator_tag は、STL（標準テンプレートライブラリ）
-// のアルゴリズムなどで、双方向イテレータを必要とする場合に使用されます。
-// これは、アルゴリズムが、イテレータを進めるだけでなく、逆方向にイテレータを戻すことができることを保証するためです。
-
 namespace ft
 {
 	template <typename T, class Compare >
@@ -49,8 +36,10 @@ namespace ft
 				_comp()
 			{}
 
+			// Added for subject
 			virtual ~BST_iterator() { }
 
+			
 			BST_iterator &operator=(const BST_iterator& bst_it)
 			{
 				if (*this == bst_it)
@@ -64,8 +53,10 @@ namespace ft
 			bool operator==(const BST_iterator& bst_it)
 			{ return (this->_node == bst_it._node); }
 
+
 			bool operator!=(const BST_iterator& bst_it)
 			{ return (this->_node != bst_it._node); }
+
 
 			reference operator*() const
 			{ return (this->_node->value); }
@@ -292,7 +283,7 @@ namespace ft
 }
 
 #include <iostream>
-#include "BST.hpp"
+// #include "BST.hpp"
 
 int main()
 {

@@ -128,7 +128,7 @@ namespace ft
 			const_reverse_iterator rend() const { return (reverse_iterator(this->begin())); }
 			size_type   size(void) const { return (this->_end - this->_start); }
 			size_type   max_size(void) const { return allocator_type().max_size(); }
-			
+			//  resize 関数の実装。
 			void        resize (size_type n, value_type val = value_type())
 			{
 				if (n > this->max_size())
@@ -145,7 +145,9 @@ namespace ft
 					this->insert(this->end(), n - this->size(), val);
 			}
 			
-			size_type   capacity (void) const { return (this->_end_capacity - this->_start); }
+			size_type   capacity (void) const 
+			{ return (this->_end_capacity - this->_start); }
+
 			bool        empty (void) const { return (size() == 0 ? true : false); }
 			
 			void        reserve (size_type n)
@@ -250,6 +252,7 @@ namespace ft
 					}
 				}
 			}
+
 			void push_back (const value_type& val)
 			{                
 				if (_end == _end_capacity)
@@ -260,11 +263,13 @@ namespace ft
 				_alloc.construct(_end, val);
 				_end++;
 			}
+
 			void pop_back()
 			{
 				_alloc.destroy(&this->back());
 				_end--;
 			}
+			
 			iterator insert (iterator position, const value_type& val)
 			{
 				size_type pos_len = &(*position) - _start;

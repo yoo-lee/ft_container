@@ -1,0 +1,14 @@
+#include <iterator>
+#include <vector>
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    std::vector<int> v = {1,2,3,4,5} ;
+
+    cout << v.at(0) ; // 最初の要素: 1
+    v.at(4) ; // 最後の要素: 5
+
+
+}

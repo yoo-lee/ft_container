@@ -2,19 +2,6 @@
 # define BINARY_SEARCH_TREE_ITERATOR_HPP
 
 //二分探索木のノードを反復処理するためのイテレータークラス
-// このコードは、C++で実装された二分探索木のイテレーターを表すクラステンプレートです。
-// namespace ftは、STLの代替として実装されたカスタムのC++
-
-// テンプレートパラメータTは、イテレーターが指す要素の型を表し、
-// Compareは比較関数の型を表します。BST_iteratorクラスは、
-// ft::iteratorクラスを継承し、双方向イテレータを表します。
-// 双方向イテレータは、イテレータが指す要素を前方または後方
-// に移動することができるイテレータです。これにより、
-// 二分探索木内の要素を効率的に反復処理することができます。
-// bidirectional_iterator_tag は、STL（標準テンプレートライブラリ）
-// のアルゴリズムなどで、双方向イテレータを必要とする場合に使用されます。
-// これは、アルゴリズムが、イテレータを進めるだけでなく、逆方向にイテレータを戻すことができることを保証するためです。
-
 namespace ft
 {
 	template <typename T, class Compare >
@@ -49,8 +36,10 @@ namespace ft
 				_comp()
 			{}
 
+			// Added for subject
 			virtual ~BST_iterator() { }
 
+			
 			BST_iterator &operator=(const BST_iterator& bst_it)
 			{
 				if (*this == bst_it)
@@ -64,8 +53,10 @@ namespace ft
 			bool operator==(const BST_iterator& bst_it)
 			{ return (this->_node == bst_it._node); }
 
+
 			bool operator!=(const BST_iterator& bst_it)
 			{ return (this->_node != bst_it._node); }
+
 
 			reference operator*() const
 			{ return (this->_node->value); }
@@ -241,13 +232,18 @@ namespace ft
 				return (*this);
 			}
 
+			/*
+			** @brief Post increment the iterator to the next value
+			** after the value in the tree at iterator position.
+			**
+			** @return this before the incrementation.
+			*/
 			BST_const_iterator operator++(int)
 			{
 				BST_const_iterator tmp(*this);
 				operator++();
 				return (tmp);
 			}
-
 			BST_const_iterator& operator--(void)
 			{
 				T * cursor = _node;
@@ -277,7 +273,6 @@ namespace ft
 				}
 				return (*this);
 			}
-
 			BST_const_iterator operator--(int)
 			{
 				BST_const_iterator tmp(*this);
@@ -290,44 +285,5 @@ namespace ft
 			Compare     _comp;
 	};
 }
-
-#include <iostream>
-#include "BST.hpp"
-
-int main()
-{
-  // int型のキーと値を持つ二分探索木を作成する
-  ft::BST<int, int> bst;
-
-  // ノードの挿入
-  bst.insert(ft::make_pair(4, 4));
-  bst.insert(ft::make_pair(1, 1));
-  bst.insert(ft::make_pair(3, 3));
-  bst.insert(ft::make_pair(2, 2));
-  bst.insert(ft::make_pair(6, 6));
-  bst.insert(ft::make_pair(5, 5));
-  bst.insert(ft::make_pair(7, 7));
-
-  // イテレーターを使用して二分探索木を反復処理する
-  ft::BST<int, int>::iterator it = bst.begin();
-  for (; it != bst.end(); ++it)
-  {
-    std::cout << "Key: " << it->first << ", Value: " << it->second << std::endl;
-  }
-
-  // キーを使用して値を検索する
-  ft::BST<int, int>::iterator search_it = bst.find(3);
-  if (search_it != bst.end())
-  {
-    std::cout << "Found. Key: " << search_it->first << ", Value: " << search_it->second << std::endl;
-  }
-  else
-  {
-    std::cout << "Not found." << std::endl;
-  }
-
-  return 0;
-}
-
 
 #endif
